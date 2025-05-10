@@ -1,0 +1,65 @@
+.pack-screen {
+  display: flex;
+  height: 100%;
+  padding: 5px;
+  background-color: #b0b0b0;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.item-list {
+  width: 40%;
+  border-right: 2px solid #494949;
+  padding-right: 3px;
+  height: 170px; /* Fit within 180px screen height */
+  overflow: hidden; /* No scrollbar */
+}
+
+.item {
+  padding: 3px;
+  font-size: 9px; /* Smaller font to fit more items */
+  border-bottom: 1px solid #494949;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Truncate long names */
+}
+
+.item.selected {
+  background-color: #30da0c;
+  color: #fff;
+}
+
+.item-details {
+  width: 60%;
+  padding-left: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 170px; /* Fit within 180px screen height */
+  overflow: hidden; /* No scrollbar */
+}
+
+.item-image {
+  width: 30px; /* Smaller to save space */
+  height: 30px;
+  image-rendering: pixelated;
+  margin-top: 5px;
+}
+
+.item-details h2 {
+  font-size: 12px;
+  margin: 3px 0; /* Reduced margin */
+}
+
+.item-details p {
+  font-size: 8px;
+  line-height: 1.1;
+  word-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
+  padding: 0 3px;
+  max-height: 66px; /* Limit to ~6 lines, more space since smaller image */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Truncate long descriptions */
+}

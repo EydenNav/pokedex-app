@@ -4,6 +4,9 @@ import { EPokedexMenuOption, EPokedexScreen, MenuPokedexContext } from "./MenuPo
 export const MenuPokedexProvider = ({ children }: { children: ReactNode | JSX.Element | JSX.Element[] }) => {
   const [screen, setScreen] = useState(EPokedexScreen.MENU);
   const [menuOption, setMenuOption] = useState(EPokedexMenuOption.POKEDEX);
+  const [selectedPokemonIndex, setSelectedPokemonIndex] = useState(0);
+  const [selectedItemIndex, setSelectedItemIndex] = useState(0);
+  const [selectedEvolutionIndex, setSelectedEvolutionIndex] = useState(0);
 
   const setScreenOption = (option: EPokedexScreen) => {
     setScreen(option);
@@ -11,7 +14,7 @@ export const MenuPokedexProvider = ({ children }: { children: ReactNode | JSX.El
 
   const getScreenOption = () => {
     return screen;
-  }
+  };
 
   const setMenuOptionValue = (option: EPokedexMenuOption) => {
     setMenuOption(option);
@@ -19,7 +22,7 @@ export const MenuPokedexProvider = ({ children }: { children: ReactNode | JSX.El
 
   const getMenuOption = () => {
     return menuOption;
-  }
+  };
 
   return (
     <MenuPokedexContext.Provider
@@ -28,9 +31,15 @@ export const MenuPokedexProvider = ({ children }: { children: ReactNode | JSX.El
         setScreen: setScreenOption,
         menuOption: getMenuOption(),
         setMenuOption: setMenuOptionValue,
+        selectedPokemonIndex,
+        setSelectedPokemonIndex,
+        selectedItemIndex,
+        setSelectedItemIndex,
+        selectedEvolutionIndex,
+        setSelectedEvolutionIndex,
       }}
     >
       {children}
     </MenuPokedexContext.Provider>
-  )
-}
+  );
+};

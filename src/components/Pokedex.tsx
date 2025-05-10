@@ -17,10 +17,10 @@ const Pokedex: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     if (screen === EPokedexScreen.MENU) {
       e.preventDefault();
       const path = EPokedexMenuOption[menuOption].toLowerCase();
-      setScreen(menuOption as unknown as EPokedexScreen)
+      setScreen(menuOption as unknown as EPokedexScreen);
       router.push(`/${path}`);
     }
-  }
+  };
 
   const toggleScreen = () => {
     if (screen === EPokedexScreen.EXIT) {
@@ -31,7 +31,15 @@ const Pokedex: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       setScreen(EPokedexScreen.EXIT);
       router.push('/exit');
     }
-  }
+  };
+
+  const onBarButton2Click = () => {
+    if (screen === EPokedexScreen.POKEDEX || screen === EPokedexScreen.PACK) {
+      setScreen(EPokedexScreen.MENU);
+      setMenuOption(EPokedexMenuOption.POKEDEX);
+      router.push('/home');
+    }
+  };
   
   return (
     <IonPage>
@@ -82,7 +90,11 @@ const Pokedex: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             >
             </div>
             <div id="barbutton1" className="gameboy-button"></div>
-            <div id="barbutton2" className="gameboy-button"></div>
+            <div
+              id="barbutton2"
+              className="gameboy-button"
+              onClick={onBarButton2Click}
+            ></div>
             <Cross />
           </div>
         </div>
